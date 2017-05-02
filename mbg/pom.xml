@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cn.tedu</groupId>
+  <artifactId>mbg</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <build>
+    <!-- 配置maven插件 -->
+    <plugins>
+      <!-- 配置MyBatis Generator插件 -->
+      <plugin>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-maven-plugin</artifactId>
+        <version>1.3.5</version>
+        <!-- 配置当前插件所需的依赖 -->
+        <dependencies>
+          <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+          </dependency>
+        </dependencies>
+        <!-- 当前插件的一些配置 -->
+        <configuration>
+          <!-- 指定mbg.xml配置文件路径 -->
+          <configurationFile>${basedir}/src/main/resources/mbg.xml</configurationFile>
+          <!-- 生成日志 -->
+          <verbose>true</verbose>
+          <!-- 覆盖写出 -->
+          <overwrite>true</overwrite>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.38</version>
+    </dependency>
+  </dependencies>
+</project>
